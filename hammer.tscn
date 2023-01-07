@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://57myr824jwla"]
+
+[ext_resource type="Texture2D" uid="uid://bugcvn3ygqhor" path="res://Assets/Hammer_merge_export_New animation_dir1_1.png" id="1_q58di"]
+[ext_resource type="Script" path="res://hammer.gd" id="1_wwl5t"]
+[ext_resource type="Texture2D" uid="uid://l28o80x6b4ed" path="res://Assets/Hammer_merge_export_New animation_dir1_2.png" id="2_8y5um"]
+[ext_resource type="Texture2D" uid="uid://dr68qospiad0r" path="res://Assets/Hammer_merge_export_New animation_dir1_3.png" id="3_iltr5"]
+[ext_resource type="Texture2D" uid="uid://ceol3boq7gjew" path="res://Assets/Hammer_merge_export_New animation_dir1_4.png" id="4_7cq1i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0nsvv"]
+animations = [{
+"frames": [ExtResource("1_q58di"), ExtResource("2_8y5um"), ExtResource("3_iltr5"), ExtResource("4_7cq1i")],
+"loop": false,
+"name": &"crush",
+"speed": 60.0
+}]
+
+[sub_resource type="Animation" id="Animation_ghv4t"]
+resource_name = "crush_anim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7yrr"]
+_data = {
+"crush_anim": SubResource("Animation_ghv4t")
+}
+
+[node name="Hammer" type="Node2D"]
+script = ExtResource("1_wwl5t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_0nsvv")
+animation = &"crush"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 6.0
+libraries = {
+"": SubResource("AnimationLibrary_u7yrr")
+}
