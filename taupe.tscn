@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dec8nyequld3m"]
+
+[ext_resource type="Texture2D" uid="uid://dfpl8nu2ypff3" path="res://Assets/taupe_export.png" id="1_kncbh"]
+
+[node name="Taupe" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kncbh")

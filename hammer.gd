@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 	
 	if (Input.is_action_just_pressed("crush")):
 		_hammer_animation.play("crush_anim")
-
+		Global.play_crush()
 		
