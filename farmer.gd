@@ -16,6 +16,11 @@ func _process(delta: float) -> void:
 		if can_be_hit == true:
 			if Global.score > 1:
 				Global.score = Global.score-2
+			Global.play_ouch()	
+			var tween = get_tree().create_tween()
+			tween.tween_property($Sprite2D,"modulate",Color.RED,1).set_trans(Tween.TRANS_SINE)
+			await tween.finished
+			
 			destroy()
 
 

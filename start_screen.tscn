@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwaadpp8d381h"]
+[gd_scene load_steps=8 format=3 uid="uid://cwaadpp8d381h"]
 
 [ext_resource type="Texture2D" uid="uid://6imqnhl4q2dg" path="res://Assets/title.png" id="1_0m6vc"]
 [ext_resource type="Script" path="res://start_screen.gd" id="1_gkdfd"]
 [ext_resource type="Texture2D" uid="uid://bifviytlyyhti" path="res://Assets/press.png" id="3_qklbu"]
+[ext_resource type="Texture2D" uid="uid://bugcvn3ygqhor" path="res://Assets/Hammer_merge_export_New animation_dir1_1.png" id="4_hrpdt"]
+[ext_resource type="Texture2D" uid="uid://bgegwb6s4md6y" path="res://Assets/farmer_export.png" id="5_7wkwi"]
+[ext_resource type="Texture2D" uid="uid://cmulpnmk4bx4m" path="res://Assets/carotte_export.png" id="6_r53tt"]
+[ext_resource type="Texture2D" uid="uid://dfpl8nu2ypff3" path="res://Assets/taupe_export.png" id="7_ofmfp"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -17,10 +21,34 @@ offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(496, 256)
+position = Vector2(512, 208)
 texture = ExtResource("1_0m6vc")
 
 [node name="Press" type="Sprite2D" parent="."]
 position = Vector2(512, 352)
 scale = Vector2(0.261194, 0.261194)
 texture = ExtResource("3_qklbu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 304.0
+offset_top = 288.0
+offset_right = 736.0
+offset_bottom = 320.0
+text = "Help the farmers harvest by pushing away the moles !"
+
+[node name="HammerMergeExportNewAnimationDir11" type="Sprite2D" parent="."]
+position = Vector2(512, 432)
+texture = ExtResource("4_hrpdt")
+
+[node name="FarmerExport" type="Sprite2D" parent="."]
+position = Vector2(368, 96)
+texture = ExtResource("5_7wkwi")
+
+[node name="CarotteExport" type="Sprite2D" parent="."]
+position = Vector2(512, 96)
+texture = ExtResource("6_r53tt")
+
+[node name="TaupeExport" type="Sprite2D" parent="."]
+position = Vector2(688, 96)
+texture = ExtResource("7_ofmfp")

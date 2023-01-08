@@ -16,6 +16,11 @@ func _process(delta: float) -> void:
 		if can_be_hit == true:
 			print(hole)
 			Global.score = Global.score+1
+			Global.play_plop()
+			var tween = get_tree().create_tween()
+			tween.tween_property($Sprite2D,"modulate",Color.RED,1).set_trans(Tween.TRANS_SINE)
+#			tween.tween_property($Sprite2D,"scale",Vector2(0,0),1).set_trans(Tween.TRANS_BOUNCE)
+			await tween.finished
 			destroy()
 			
 

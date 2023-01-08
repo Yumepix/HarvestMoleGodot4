@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://twxsax0vod8y"]
+[gd_scene load_steps=6 format=3 uid="uid://twxsax0vod8y"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_2oai5"]
 [ext_resource type="AudioStream" uid="uid://bhntcu1qqfo85" path="res://Sound/crush.wav" id="2_b5fn5"]
+[ext_resource type="AudioStream" uid="uid://c13f410rq4gy6" path="res://Sound/ouch.wav" id="3_vd60l"]
+[ext_resource type="AudioStream" uid="uid://dpdfg6hye8oul" path="res://Sound/gameover.wav" id="4_op0df"]
+[ext_resource type="AudioStream" uid="uid://cpa4fchwlo5ab" path="res://Sound/plop.wav" id="5_1kcs7"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_2oai5")
 
 [node name="snd_Crush" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_b5fn5")
+
+[node name="snd_Ouch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vd60l")
+
+[node name="snd_Gameover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_op0df")
+
+[node name="snd_Plop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1kcs7")

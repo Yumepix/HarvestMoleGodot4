@@ -11,6 +11,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("crush")):
 		if can_be_hit == true:
+			
+			Global.play_ouch()	
+			var tween = get_tree().create_tween()
+			tween.tween_property($Sprite2D,"modulate",Color.RED,1).set_trans(Tween.TRANS_SINE)
 			if Global.score > 1:
 				Global.score = Global.score-1
 	
