@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b28rglchmtu1l"]
+
+[ext_resource type="Texture2D" uid="uid://cmulpnmk4bx4m" path="res://Assets/carotte_export.png" id="1_2d7hu"]
+[ext_resource type="Script" path="res://carotte.gd" id="1_3wipe"]
+
+[node name="Carotte" type="Node2D"]
+script = ExtResource("1_3wipe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2d7hu")

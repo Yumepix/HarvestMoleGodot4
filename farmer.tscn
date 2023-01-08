@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4e8uottreca4"]
+
+[ext_resource type="Texture2D" uid="uid://bgegwb6s4md6y" path="res://Assets/farmer_export.png" id="1_se5jf"]
+[ext_resource type="Script" path="res://farmer.gd" id="1_xhv1w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5a3i"]
+radius = 24.0
+
+[node name="Farmer" type="Node2D" groups=["farmers"]]
+script = ExtResource("1_xhv1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_se5jf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_o5a3i")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
