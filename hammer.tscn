@@ -36,6 +36,7 @@ _data = {
 }
 
 [node name="Hammer" type="Node2D"]
+z_index = 5
 script = ExtResource("1_wwl5t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

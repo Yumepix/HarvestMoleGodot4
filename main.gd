@@ -1,15 +1,87 @@
 extends Node2D
 
+#const CELL_SIZE = Vector2(64.0,48.0)
+#const nb_cols = 8
+#const nb_lines = 7
+@onready var tab_of_holes = []
+@onready var begin_grid = Vector2.ZERO
+@onready var background = $Background
+@onready var hammer = $Hammer
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+var nb_ennemies = 0
+var Mole = preload("res://taupe.tscn")
 
+
+func _ready() -> void:
+	# cache le curseur
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	randomize()
+	
+	var all_cells = background.get_used_cells(0)
+	for cell in all_cells:
+		var tile = background.get_cell_atlas_coords(0,cell)
+		if tile == Vector2i(5,1):
+			tab_of_holes.append(cell)
+	
+	tab_of_holes.shuffle()
+	print(tab_of_holes)
+	print(background.map_to_local(Vector2(4,3)))
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	
+	# Atlas = le positionnement des tuiles source sur la tilemap
+	
+	
 	var pos_mouse = get_global_mouse_position()
-	$Hammer.position = pos_mouse
+	var pos_mousei = Vector2i(pos_mouse)
 	
+	# position de la tuile
+	var tile = background.local_to_map(pos_mouse)
+#	position de la tuile sur l'atlas
+#	print(background.get_cell_atlas_coords(0,tile))
 	
+	# modifier une tile
+#	background.set_cell(0,tile,2,Vector2i(5,1))
+
+	hammer.position = pos_mouse
+	nb_ennemies = get_tree().get_nodes_in_group("ennemies").size();
+#	print(nb_ennemies)
+#	print(Global.tab_of_holes_taken)
+	pop_mole()
+
+
+
+func pop_mole() -> void:
+	if (nb_ennemies < 4):	
+		var rand_index:int = randi() % tab_of_holes.size()
+		var hole = tab_of_holes[rand_index]
+		if !is_hole_taken(hole):
+			var taupe = Mole.instantiate()
+			taupe.pop(background.map_to_local(hole))
+			add_child(taupe)
+			taupe.hole = hole
+			Global.tab_of_holes_taken.append(hole)
+		else:
+			print("hole taken")
+			
+
+func is_hole_taken(hole: Vector2i):
+	for h in Global.tab_of_holes_taken:
+		if h == hole:
+			return true
+	return false
+
+#func is_cursor_in_grid(pos_mouse):
+#	if pos_mouse.x > begin_grid.x \
+#	and pos_mouse.x < begin_grid.x+(CELL_SIZE.x * nb_cols) \
+#	and pos_mouse.y > begin_grid.y \
+#	and pos_mouse.y < begin_grid.y+ (CELL_SIZE.y * nb_lines):
+#		print("in grid")
+#		return true
+#	else:
+#		print("out of grid")
+#		return false

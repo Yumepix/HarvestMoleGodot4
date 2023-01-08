@@ -7,7 +7,8 @@
 radius = 19.0
 height = 50.0
 
-[node name="Taupe" type="Node2D"]
+[node name="Taupe" type="Node2D" groups=["ennemies"]]
+z_index = 3
 script = ExtResource("1_na2jo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
