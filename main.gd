@@ -45,7 +45,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	# Atlas = le positionnement des tuiles source sur la tilemap
-	print(timer.time_left)
+#	print(timer.time_left)
 	
 	if (timer.time_left == 0):
 		get_tree().change_scene_to_file("res://end_screen.tscn")
