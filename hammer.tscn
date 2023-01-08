@@ -39,6 +39,7 @@ _data = {
 script = ExtResource("1_wwl5t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -16)
 frames = SubResource("SpriteFrames_0nsvv")
 animation = &"crush"
 
