@@ -14,7 +14,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("crush")):
 		if can_be_hit == true:
-			print(hole)
+			if Global.score > 1:
+				Global.score = Global.score-2
 			destroy()
 
 

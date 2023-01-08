@@ -8,6 +8,8 @@ extends Node2D
 @onready var begin_grid = Vector2.ZERO
 @onready var background = $Background
 @onready var hammer = $Hammer
+@onready var score = $Score
+@onready var timer = $Timer
 
 
 var nb_ennemies = 0
@@ -19,6 +21,8 @@ var Farmers = preload("res://farmer.tscn")
 func _ready() -> void:
 	# cache le curseur
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+	
 	
 	randomize()
 	
@@ -41,7 +45,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	# Atlas = le positionnement des tuiles source sur la tilemap
+	print(timer.time_left)
 	
+	if (timer.time_left == 0):
+		get_tree().change_scene_to_file("res://end_screen.tscn")
+	
+
+	score.text = str(Global.score)
 	
 	var pos_mouse = get_global_mouse_position()
 	var pos_mousei = Vector2i(pos_mouse)
@@ -112,3 +122,8 @@ func is_hole_taken(hole: Vector2i):
 #	else:
 #		print("out of grid")
 #		return false
+
+
+
+func _on_timer_2_timeout() -> void:
+	$ProgressBar.value-=5

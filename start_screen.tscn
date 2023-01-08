@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwaadpp8d381h"]
+
+[ext_resource type="Texture2D" uid="uid://6imqnhl4q2dg" path="res://Assets/title.png" id="1_0m6vc"]
+[ext_resource type="Script" path="res://start_screen.gd" id="1_gkdfd"]
+[ext_resource type="Texture2D" uid="uid://bifviytlyyhti" path="res://Assets/press.png" id="3_qklbu"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_gkdfd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1025.0
+offset_bottom = 512.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(496, 256)
+texture = ExtResource("1_0m6vc")
+
+[node name="Press" type="Sprite2D" parent="."]
+position = Vector2(512, 352)
+scale = Vector2(0.261194, 0.261194)
+texture = ExtResource("3_qklbu")

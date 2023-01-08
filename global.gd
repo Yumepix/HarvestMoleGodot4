@@ -2,6 +2,8 @@ extends Node2D
 
 var tab_of_holes_taken = []
 var tab_of_carottes_taken = []
+@onready var score: int = 0
+
 
 func play_crush()-> void:
 	$snd_Crush.play()

@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://chnd2844souap"]
+
+[ext_resource type="Script" path="res://end_screen.gd" id="1_hsbrf"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_hsbrf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1025.0
+offset_bottom = 512.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 272.0
+offset_top = 144.0
+offset_right = 640.0
+offset_bottom = 167.0
+text = "Thanks for playing ! Please leave a comment so I can improve :)"
+
+[node name="Score" type="Label" parent="."]
+offset_left = 416.0
+offset_top = 192.0
+offset_right = 472.0
+offset_bottom = 218.0
+text = "Score : "
+
+[node name="L_Score" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 192.0
+offset_right = 520.0
+offset_bottom = 215.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 384.0
+offset_right = 653.0
+offset_bottom = 416.0
+text = "Game By Yumepix for LDJAM 52 : Harvest"
